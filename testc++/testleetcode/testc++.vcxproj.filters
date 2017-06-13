@@ -29,7 +29,16 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="testc++.cpp">
+    <ClCompile Include="testFindLoop.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testLFUCache.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="testLicenseFmt.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="rearangetwoarray.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

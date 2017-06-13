@@ -4,6 +4,7 @@
 	> Mail: 
 	> Created Time: Tue 10 Jan 2017 04:54:25 AM EST
  ************************************************************************/
+#include "stdafx.h"
 
 #include <cstdio>
 #include <cstring>
@@ -277,29 +278,37 @@ public:
     }
 };
 
-int main(int argc, char* argv[])
+static const char* testtxt = "2 -1 1 2 2\n"
+"-1 2\n";
+
+bool getarr(const char *&st, vector<int> &arr)
+{
+	arr.clear();
+	while (strchr(" \n", *st) != NULL){
+		if (*st == '\0') return false;
+		st++;
+	}
+
+	while (true){
+		const char *ed = st + 1;
+		while (strchr(" \n", *ed) == NULL) ed++;
+		int num;
+		sscanf(st, "%d", &num);
+		arr.push_back(num);
+		if (*ed != ' ')break;
+		st = ed + 1;
+		while (*st == ' ') st++;
+		if (strchr("\n", *st) != NULL) break;
+	}
+	return true;
+}
+
+TEST(circular, first)
 {
     Solution a;
-    int test1[] = {2, -1, 1, 2, 2};
-    vector<int> nums1(test1, test1 + 5);
-    a.circularArrayLoop(nums1);
-    int test2[] = {-1, 2};
-    vector<int> nums2(test2, test2 + 2);
-    a.circularArrayLoop(nums2);
-    if(argc > 1){
-        string strtmp(argv[1]);
-        vector<int> argnums;
-        char *argtest = const_cast<char*>(strtmp.c_str());
-        char *st = argtest;
-        while(true){
-            char* seppos = strchr(st, ' ');
-            int num;
-            sscanf(st, "%d", &num);
-            argnums.push_back(num);
-            if(seppos == NULL) break;
-            st = seppos + 1;
-        }
-        a.circularArrayLoop(argnums);
-    }
-    return 0;
+	vector<int> argnums;
+	const char *st = testtxt;
+	while (getarr(st, argnums)){
+		a.circularArrayLoop(argnums);
+	}
 }

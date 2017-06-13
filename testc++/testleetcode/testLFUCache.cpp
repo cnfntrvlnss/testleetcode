@@ -5,6 +5,8 @@
 	> Created Time: Sun 18 Dec 2016 07:52:27 AM EST
  ************************************************************************/
 
+#include "stdafx.h"
+
 #include <cassert>
 #include <list>
 #include <map>
@@ -275,7 +277,7 @@ public:
     };
 };
 
-int main()
+TEST(LFUCache, first)
 {
     LFUCache cache(2);
     cache.put(1, 1);
@@ -288,6 +290,4 @@ int main()
     assert(cache.get(1) == -1);
     assert(cache.get(3) == 3);
     assert(cache.get(4) == 4);
-
-    return 0;
 }

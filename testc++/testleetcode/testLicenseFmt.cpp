@@ -1,3 +1,6 @@
+#include "stdafx.h"
+
+
 #include <string>
 #include <iostream>
 
@@ -51,7 +54,7 @@ class Solution {
     }
 };
 
-int main()
+TEST(licenseFmt, first)
 {
     string test1 = "2-4A0r7-4k";
     Solution s;
@@ -60,5 +63,4 @@ int main()
     string test2 = "a0001afds-";
     ret = s.licenseKeyFormatting(test2, 4);
     cout << ret <<endl;
-    return 0;
 }
