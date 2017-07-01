@@ -277,7 +277,7 @@ public:
     };
 };
 
-TEST(LFUCache, first)
+TEST(DISABLED_LFUCache, first)
 {
     LFUCache cache(2);
     cache.put(1, 1);

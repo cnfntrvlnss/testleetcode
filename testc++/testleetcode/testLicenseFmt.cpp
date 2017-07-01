@@ -54,7 +54,7 @@ class Solution {
     }
 };
 
-TEST(licenseFmt, first)
+TEST(DISABLED_licenseFmt, first)
 {
     string test1 = "2-4A0r7-4k";
     Solution s;

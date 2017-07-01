@@ -141,7 +141,7 @@ void test_rearange()
 	cout << endl;
 }
 
-TEST(rearange, first)
+TEST(DISABLED_rearange, first)
 {
 	test_rearange();
 }

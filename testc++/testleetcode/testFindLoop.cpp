@@ -273,37 +273,17 @@ public:
                     nums[idx] = 0;
                     idx = nidx;
                 }
+
             }
         }
+		return bfound;
     }
 };
 
 static const char* testtxt = "2 -1 1 2 2\n"
 "-1 2\n";
 
-bool getarr(const char *&st, vector<int> &arr)
-{
-	arr.clear();
-	while (strchr(" \n", *st) != NULL){
-		if (*st == '\0') return false;
-		st++;
-	}
-
-	while (true){
-		const char *ed = st + 1;
-		while (strchr(" \n", *ed) == NULL) ed++;
-		int num;
-		sscanf(st, "%d", &num);
-		arr.push_back(num);
-		if (*ed != ' ')break;
-		st = ed + 1;
-		while (*st == ' ') st++;
-		if (strchr("\n", *st) != NULL) break;
-	}
-	return true;
-}
-
-TEST(circular, first)
+TEST(DISABLED_circular, first)
 {
     Solution a;
 	vector<int> argnums;
